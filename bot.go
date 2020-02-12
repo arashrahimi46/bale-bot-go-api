@@ -1,5 +1,5 @@
 // Package tgbotapi has functions and types used for interacting with
-// the Telegram Bot API.
+// the Bale Bot API.
 package tgbotapi
 
 import (
@@ -19,7 +19,7 @@ import (
 	"github.com/technoweenie/multipartstreamer"
 )
 
-// BotAPI allows you to interact with the Telegram Bot API.
+// BotAPI allows you to interact with the Bale Bot API.
 type BotAPI struct {
 	Token  string `json:"token"`
 	Debug  bool   `json:"debug"`
@@ -34,7 +34,7 @@ type BotAPI struct {
 
 // NewBotAPI creates a new BotAPI instance.
 //
-// It requires a token, provided by @BotFather on Telegram.
+// It requires a token, provided by @BotFather on Bale.
 func NewBotAPI(token string) (*BotAPI, error) {
 	return NewBotAPIWithClient(token, &http.Client{})
 }
@@ -42,7 +42,7 @@ func NewBotAPI(token string) (*BotAPI, error) {
 // NewBotAPIWithClient creates a new BotAPI instance
 // and allows you to pass a http.Client.
 //
-// It requires a token, provided by @BotFather on Telegram.
+// It requires a token, provided by @BotFather on Bale.
 func NewBotAPIWithClient(token string, client *http.Client) (*BotAPI, error) {
 	bot := &BotAPI{
 		Token:           token,
@@ -271,7 +271,7 @@ func (bot *BotAPI) IsMessageToMe(message Message) bool {
 	return strings.Contains(message.Text, "@"+bot.Self.UserName)
 }
 
-// Send will send a Chattable item to Telegram.
+// Send will send a Chattable item to Bale.
 //
 // It requires the Chattable to send.
 func (bot *BotAPI) Send(c Chattable) (Message, error) {
@@ -293,7 +293,7 @@ func (bot *BotAPI) debugLog(context string, v url.Values, message interface{}) {
 	}
 }
 
-// sendExisting will send a Message with an existing file to Telegram.
+// sendExisting will send a Message with an existing file to Bale.
 func (bot *BotAPI) sendExisting(method string, config Fileable) (Message, error) {
 	v, err := config.values()
 
@@ -309,7 +309,7 @@ func (bot *BotAPI) sendExisting(method string, config Fileable) (Message, error)
 	return message, nil
 }
 
-// uploadAndSend will send a Message with a new file to Telegram.
+// uploadAndSend will send a Message with a new file to Bale.
 func (bot *BotAPI) uploadAndSend(method string, config Fileable) (Message, error) {
 	params, err := config.params()
 	if err != nil {
@@ -384,7 +384,7 @@ func (bot *BotAPI) GetUserProfilePhotos(config UserProfilePhotosConfig) (UserPro
 	return profilePhotos, nil
 }
 
-// GetFile returns a File which can download a file from Telegram.
+// GetFile returns a File which can download a file from Bale.
 //
 // Requires FileID.
 func (bot *BotAPI) GetFile(config FileConfig) (File, error) {

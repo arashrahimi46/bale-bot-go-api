@@ -43,10 +43,10 @@ func (eo *PassportScopeElementOne) ScopeType() string {
 }
 
 type (
-	// PassportData contains information about Telegram Passport data shared with
+	// PassportData contains information about Bale Passport data shared with
 	// the bot by the user.
 	PassportData struct {
-		// Array with information about documents and other Telegram Passport
+		// Array with information about documents and other Bale Passport
 		// elements that was shared with the bot
 		Data []EncryptedPassportElement `json:"data"`
 
@@ -54,8 +54,8 @@ type (
 		Credentials *EncryptedCredentials `json:"credentials"`
 	}
 
-	// PassportFile represents a file uploaded to Telegram Passport. Currently all
-	// Telegram Passport files are in JPEG format when decrypted and don't exceed
+	// PassportFile represents a file uploaded to Bale Passport. Currently all
+	// Bale Passport files are in JPEG format when decrypted and don't exceed
 	// 10MB.
 	PassportFile struct {
 		// Unique identifier for this file
@@ -69,12 +69,12 @@ type (
 	}
 
 	// EncryptedPassportElement contains information about documents or other
-	// Telegram Passport elements shared with the bot by the user.
+	// Bale Passport elements shared with the bot by the user.
 	EncryptedPassportElement struct {
 		// Element type.
 		Type string `json:"type"`
 
-		// Base64-encoded encrypted Telegram Passport element data provided by
+		// Base64-encoded encrypted Base Passport element data provided by
 		// the user, available for "personal_details", "passport",
 		// "driver_license", "identity_card", "identity_passport" and "address"
 		// types. Can be decrypted and verified using the accompanying
@@ -112,7 +112,7 @@ type (
 	}
 
 	// EncryptedCredentials contains data required for decrypting and
-	// authenticating EncryptedPassportElement. See the Telegram Passport
+	// authenticating EncryptedPassportElement. See the Base Passport
 	// Documentation for a complete description of the data decryption and
 	// authentication processes.
 	EncryptedCredentials struct {
@@ -129,7 +129,7 @@ type (
 		Secret string `json:"secret"`
 	}
 
-	// PassportElementError represents an error in the Telegram Passport element
+	// PassportElementError represents an error in the Bale Passport element
 	// which was submitted that should be resolved by the user.
 	PassportElementError interface{}
 
@@ -140,7 +140,7 @@ type (
 		// Error source, must be data
 		Source string `json:"source"`
 
-		// The section of the user's Telegram Passport which has the error, one
+		// The section of the user's Bale Passport which has the error, one
 		// of "personal_details", "passport", "driver_license", "identity_card",
 		// "internal_passport", "address"
 		Type string `json:"type"`
@@ -162,7 +162,7 @@ type (
 		// Error source, must be front_side
 		Source string `json:"source"`
 
-		// The section of the user's Telegram Passport which has the issue, one
+		// The section of the user's Bale Passport which has the issue, one
 		// of "passport", "driver_license", "identity_card", "internal_passport"
 		Type string `json:"type"`
 
@@ -180,7 +180,7 @@ type (
 		// Error source, must be reverse_side
 		Source string `json:"source"`
 
-		// The section of the user's Telegram Passport which has the issue, one
+		// The section of the user's Bale Passport which has the issue, one
 		// of "driver_license", "identity_card"
 		Type string `json:"type"`
 
@@ -198,7 +198,7 @@ type (
 		// Error source, must be selfie
 		Source string `json:"source"`
 
-		// The section of the user's Telegram Passport which has the issue, one
+		// The section of the user's Bale Passport which has the issue, one
 		// of "passport", "driver_license", "identity_card", "internal_passport"
 		Type string `json:"type"`
 
@@ -215,7 +215,7 @@ type (
 		// Error source, must be file
 		Source string `json:"source"`
 
-		// The section of the user's Telegram Passport which has the issue, one
+		// The section of the user's Bale Passport which has the issue, one
 		// of "utility_bill", "bank_statement", "rental_agreement",
 		// "passport_registration", "temporary_registration"
 		Type string `json:"type"`
@@ -234,7 +234,7 @@ type (
 		// Error source, must be files
 		Source string `json:"source"`
 
-		// The section of the user's Telegram Passport which has the issue, one
+		// The section of the user's Bale Passport which has the issue, one
 		// of "utility_bill", "bank_statement", "rental_agreement",
 		// "passport_registration", "temporary_registration"
 		Type string `json:"type"`
@@ -293,7 +293,6 @@ type (
 		Secret string `json:"secret"`
 	}
 
-	// PersonalDetails https://core.telegram.org/passport#personaldetails
 	PersonalDetails struct {
 		FirstName            string `json:"first_name"`
 		LastName             string `json:"last_name"`
@@ -307,7 +306,6 @@ type (
 		MiddleNameNative     string `json:"middle_name_native"`
 	}
 
-	// IDDocumentData https://core.telegram.org/passport#iddocumentdata
 	IDDocumentData struct {
 		DocumentNumber string `json:"document_no"`
 		ExpiryDate     string `json:"expiry_date"`

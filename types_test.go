@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/arashrahimi46/bale-bot-go-api"
 )
 
 func TestUserStringWith(t *testing.T) {
@@ -274,7 +274,7 @@ func TestMessageEntityIsTextLink(t *testing.T) {
 func TestFileLink(t *testing.T) {
 	file := tgbotapi.File{FilePath: "test/test.txt"}
 
-	if file.Link("token") != "https://api.telegram.org/file/bottoken/test/test.txt" {
+	if file.Link("token") != "https://bot.bale.ai/file/bottoken/test/test.txt" {
 		t.Fail()
 	}
 }

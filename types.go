@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-// APIResponse is a response from the Telegram API with the result
+// APIResponse is a response from the Bale API with the result
 // stored raw.
 type APIResponse struct {
 	Ok          bool                `json:"ok"`
@@ -49,7 +49,7 @@ func (ch UpdatesChannel) Clear() {
 	}
 }
 
-// User is a user on Telegram.
+// User is a user on Bale.
 type User struct {
 	ID           int    `json:"id"`
 	FirstName    string `json:"first_name"`
@@ -418,7 +418,7 @@ type UserProfilePhotos struct {
 	Photos     [][]PhotoSize `json:"photos"`
 }
 
-// File contains information about a file to download from Telegram.
+// File contains information about a file to download from Bale.
 type File struct {
 	FileID   string `json:"file_id"`
 	FileSize int    `json:"file_size"` // optional
@@ -535,7 +535,7 @@ func (chat ChatMember) HasLeft() bool { return chat.Status == "left" }
 // WasKicked returns if the ChatMember was kicked from the chat.
 func (chat ChatMember) WasKicked() bool { return chat.Status == "kicked" }
 
-// Game is a game within Telegram.
+// Game is a game within Bale.
 type Game struct {
 	Title        string          `json:"title"`
 	Description  string          `json:"description"`
@@ -599,7 +599,7 @@ type InputMediaVideo struct {
 	SupportsStreaming bool   `json:"supports_streaming"`
 }
 
-// InlineQuery is a Query from Telegram for an inline request.
+// InlineQuery is a Query from Bale for an inline request.
 type InlineQuery struct {
 	ID       string    `json:"id"`
 	From     *User     `json:"from"`
@@ -965,7 +965,7 @@ type PreCheckoutQuery struct {
 	OrderInfo        *OrderInfo `json:"order_info,omitempty"`
 }
 
-// Error is an error containing extra information returned by the Telegram API.
+// Error is an error containing extra information returned by the Bale API.
 type Error struct {
 	Code    int
 	Message string

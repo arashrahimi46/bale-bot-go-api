@@ -1,4 +1,4 @@
-# Golang bindings for the Telegram Bot API
+# Golang bindings for the Bale Bot API
 
 [![GoDoc](https://godoc.org/github.com/go-telegram-bot-api/telegram-bot-api?status.svg)](http://godoc.org/github.com/go-telegram-bot-api/telegram-bot-api)
 [![Travis](https://travis-ci.org/go-telegram-bot-api/telegram-bot-api.svg)](https://travis-ci.org/go-telegram-bot-api/telegram-bot-api)
@@ -12,13 +12,10 @@ without any additional features. There are other projects for creating
 something with plugins and command handlers without having to design
 all that yourself.
 
-Join [the development group](https://telegram.me/go_telegram_bot_api) if
-you want to ask questions or discuss development.
-
 ## Example
 
 First, ensure the library is installed and up to date by running
-`go get -u github.com/go-telegram-bot-api/telegram-bot-api`.
+`go get -u github.com/arashrahimi46/bale-bot-go-api`.
 
 This is a very simple bot that just displays any gotten updates,
 then replies it to that chat.
@@ -28,8 +25,7 @@ package main
 
 import (
 	"log"
-
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/arashrahimi46/bale-bot-go-api"
 )
 
 func main() {
@@ -64,6 +60,7 @@ func main() {
 
 There are more examples on the [wiki](https://github.com/go-telegram-bot-api/telegram-bot-api/wiki)
 with detailed information on how to do many different kinds of things.
+but remember you should replace github.com/go-telegram-bot-api/telegram-bot-api with github.com/arashrahimi46/bale-bot-go-api
 It's a great place to get started on using keyboards, commands, or other
 kinds of reply markup.
 
@@ -77,7 +74,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/arashrahimi46/bale-bot-go-api"
 )
 
 func main() {
@@ -99,7 +96,7 @@ func main() {
 		log.Fatal(err)
 	}
 	if info.LastErrorDate != 0 {
-		log.Printf("Telegram callback failed: %s", info.LastErrorMessage)
+		log.Printf("Bale callback failed: %s", info.LastErrorMessage)
 	}
 	updates := bot.ListenForWebhook("/" + bot.Token)
 	go http.ListenAndServeTLS("0.0.0.0:8443", "cert.pem", "key.pem", nil)
@@ -111,7 +108,7 @@ func main() {
 ```
 
 If you need, you may generate a self signed certficate, as this requires
-HTTPS / TLS. The above example tells Telegram that this is your
+HTTPS / TLS. The above example tells Bale that this is your
 certificate and that it should be trusted, even though it is not
 properly signed.
 

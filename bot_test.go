@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/arashrahimi46/bale-bot-go-api"
 )
 
 const (
@@ -62,7 +62,7 @@ func TestGetUpdates(t *testing.T) {
 func TestSendWithMessage(t *testing.T) {
 	bot, _ := getBot(t)
 
-	msg := tgbotapi.NewMessage(ChatID, "A test message from the test library in telegram-bot-api")
+	msg := tgbotapi.NewMessage(ChatID, "A test message from the test library in bale-bot-go-api")
 	msg.ParseMode = "markdown"
 	_, err := bot.Send(msg)
 
@@ -75,7 +75,7 @@ func TestSendWithMessage(t *testing.T) {
 func TestSendWithMessageReply(t *testing.T) {
 	bot, _ := getBot(t)
 
-	msg := tgbotapi.NewMessage(ChatID, "A test message from the test library in telegram-bot-api")
+	msg := tgbotapi.NewMessage(ChatID, "A test message from the test library in bale-bot-go-api")
 	msg.ReplyToMessageID = ReplyToMessageID
 	_, err := bot.Send(msg)
 
@@ -498,7 +498,7 @@ func TestSetWebhookWithoutCert(t *testing.T) {
 		t.Error(err)
 	}
 	if info.LastErrorDate != 0 {
-		t.Errorf("[Telegram callback failed]%s", info.LastErrorMessage)
+		t.Errorf("[Bale callback failed]%s", info.LastErrorMessage)
 	}
 	bot.RemoveWebhook()
 }
@@ -583,7 +583,7 @@ func ExampleNewWebhook() {
 		log.Fatal(err)
 	}
 	if info.LastErrorDate != 0 {
-		log.Printf("[Telegram callback failed]%s", info.LastErrorMessage)
+		log.Printf("[Bale callback failed]%s", info.LastErrorMessage)
 	}
 	updates := bot.ListenForWebhook("/" + bot.Token)
 	go http.ListenAndServeTLS("0.0.0.0:8443", "cert.pem", "key.pem", nil)
@@ -630,7 +630,7 @@ func ExampleAnswerInlineQuery() {
 func TestDeleteMessage(t *testing.T) {
 	bot, _ := getBot(t)
 
-	msg := tgbotapi.NewMessage(ChatID, "A test message from the test library in telegram-bot-api")
+	msg := tgbotapi.NewMessage(ChatID, "A test message from the test library in bale-bot-go-api")
 	msg.ParseMode = "markdown"
 	message, _ := bot.Send(msg)
 
@@ -649,7 +649,7 @@ func TestDeleteMessage(t *testing.T) {
 func TestPinChatMessage(t *testing.T) {
 	bot, _ := getBot(t)
 
-	msg := tgbotapi.NewMessage(SupergroupChatID, "A test message from the test library in telegram-bot-api")
+	msg := tgbotapi.NewMessage(SupergroupChatID, "A test message from the test library in bale-bot-go-api")
 	msg.ParseMode = "markdown"
 	message, _ := bot.Send(msg)
 
@@ -669,7 +669,7 @@ func TestPinChatMessage(t *testing.T) {
 func TestUnpinChatMessage(t *testing.T) {
 	bot, _ := getBot(t)
 
-	msg := tgbotapi.NewMessage(SupergroupChatID, "A test message from the test library in telegram-bot-api")
+	msg := tgbotapi.NewMessage(SupergroupChatID, "A test message from the test library in bale-bot-go-api")
 	msg.ParseMode = "markdown"
 	message, _ := bot.Send(msg)
 
