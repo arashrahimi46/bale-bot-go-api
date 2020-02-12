@@ -7,13 +7,13 @@ import (
 	"strconv"
 )
 
-// Telegram constants
+// Bale constants
 const (
 	// APIEndpoint is the endpoint for all API methods,
 	// with formatting for Sprintf.
-	APIEndpoint = "https://api.telegram.org/bot%s/%s"
+	APIEndpoint = "https://tapi.bale.ai/bot%s/%s"
 	// FileEndpoint is the endpoint for downloading a file from Telegram.
-	FileEndpoint = "https://api.telegram.org/file/bot%s/%s"
+	FileEndpoint = "https://tapi.bale.ai/file/bot%s/%s"
 )
 
 // Constant values for ChatActions
